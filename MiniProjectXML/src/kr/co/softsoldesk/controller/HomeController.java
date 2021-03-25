@@ -1,22 +1,32 @@
 package kr.co.softsoldesk.controller;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-@Controller //ÀÏ¹Ý Å¬·¡½º¸¦ ÄÁÆ®·Ñ·¯·Î ÁöÁ¤
+import kr.co.softsoldesk.beans.UserBean;
+
+@Controller //ï¿½Ï¹ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 public class HomeController {
 	 
-	//¾îµð¼­µç ¾î¶² ÁÖ¼Òµç ÀÔ·ÂÇÏ¸é ÇØ´ç ¸Þ¼Òµå¸¦ ½ÇÇàÇÔ. "/"ÀÌ ¸ðµç ÁÖ¼Ò¸¦ ÀÇ¹Ì
+	
+	@Resource(name="loginUserBean")
+	@org.springframework.context.annotation.Lazy
+	private UserBean loginUserBean;
+	
+	
+	//ï¿½ï¿½ð¼­µï¿½ ï¿½î¶² ï¿½Ö¼Òµï¿½ ï¿½Ô·ï¿½ï¿½Ï¸ï¿½ ï¿½Ø´ï¿½ ï¿½Þ¼Òµå¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. "/"ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ö¼Ò¸ï¿½ ï¿½Ç¹ï¿½
 	@RequestMapping(value="/", method=RequestMethod.GET) 	
 	public String Home() {
-		System.out.println("home");
+		System.out.println(loginUserBean);
 		
 		
 		
 		
 		return "redirect:/main";
-		//ÁÖ¼Ò¸¦ ¸®ÅÏ½ÃÅ°¸é ±× ÁÖ¼Ò·Î ÀÌµ¿ÇÔ - context¿¡¼­ ÁÖ¼Ò ´Ù ¾ÈÄ¡°í ÀÌ¸§¸¸ ÃÄµµ Ã£¾ÆÁö°Ô ¼¼ÆÃÇßÀ½
+		//ï¿½Ö¼Ò¸ï¿½ ï¿½ï¿½ï¿½Ï½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ ï¿½Ö¼Ò·ï¿½ ï¿½Ìµï¿½ï¿½ï¿½ - contextï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Ì¸ï¿½ï¿½ï¿½ ï¿½Äµï¿½ Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
 	}
 	
